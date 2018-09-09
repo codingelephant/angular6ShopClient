@@ -1,0 +1,34 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3 px-md-4">
+  <a class="navbar-brand" href="">Awesome Shop</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/products">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/gallery">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact">Contact</a>
+      </li>
+    </ul>
+    
+    <a class="text-light btn btn-outline-primary" routerLink="/cart">Cart <span class="badge badge-light">0</span> </a>
+    <a *ngIf="!this.auth.isLoggedIn()" class="text-light btn btn-outline-primary" routerLink="/signup">Register</a>
+    <a *ngIf="!this.auth.isLoggedIn()" class="text-light btn btn-outline-primary" routerLink="/signin">Login</a>
+    <!-- <a class="text-light" *ngIf="this.auth.isLoggedIn()">Welcome {{ this.auth.user().name }}</a> -->
+    <a *ngIf="this.auth.isLoggedIn()" class="text-light btn btn-outline-primary" routerLink="/account">My Account</a>
+    <a (click)="onLogout()" *ngIf="this.auth.isLoggedIn()"  class="text-light btn btn-outline-primary" >Logout</a>
+
+  </div>
+</nav>

@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <form class="row my-5" action="" method="GET" #sForm="ngForm" (submit)="onSearch()">
+      <div class="col-md-3">
+        <input type="text" class="form-control" name="q" [(ngModel)]="query.q" placeholder="Keyword" />
+      </div>
+      <div class="col-md-3 ">
+         <select  id="brand" class="form-control" name="brand" [(ngModel)]="query.brand">
+           <option value="">Brand</option>
+           <option value="1">Apple</option>
+           <option value="2">Samsung</option>
+         </select>
+        </div>
+        <div class="col-md-3 ">
+            <select  id="category" class="form-control" name="category" [(ngModel)]="query.category">
+              <option value="">Category</option>
+              <option value="1">Electronic</option>
+              <option value="2">Clothes</option>
+            </select>
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="row">
+               <div class="col-md-6">
+                  <select  id="min_price" class="form-control" name="min_price" [(ngModel)]="query.min_price">
+                      <option value="">From</option>
+                      <option >10</option>
+                      <option >20</option>
+                    </select>
+               </div>
+               <div class="col-md-6">
+                  <select  id="max_price" class="form-control" name="max_price" [(ngModel)]="query.max_price">
+                      <option value="">To</option>
+                      <option >500</option>
+                      <option >1000</option>
+                    </select>
+               </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 my-2">
+          <button class="btn btn-primary">Search</button>
+        </div>
+
+  </form>
+
+<p class="text-center" *ngIf="loading"><img src="https://loading.io/spinners/pacman/index.eat-bean-pie-loading-gif.svg" alt="Loading..."></p>
+
+<div class="row">
+
+  <div class="col-md-3" *ngFor="let p of products  | paginate: { itemsPerPage: 6, currentPage: p }">
+   <div class="product-card card">
+     <div class="product-card-image">
+    <img class="card-img-top" src="{{ this.productSvc.getURL(p.thumbnail) }}" alt="">
+     </div>
+    <div class="card-body">
+      <h5 class="card-title"> <a routerLink="/products/{{p.id}}">{{ p.title }}  </a>
+         <small>by <a routerLink="/brands/{{p.Brand.id}}">{{ p.Brand.name }} </a> </small> 
+      </h5>
+      <p class="card-text">$ {{ p.price }}</p>
+      <a href="#" class="btn btn-primary">Add to Cart</a>
+    </div>
+  </div>
+  </div>
+
+</div>
+<div class="row my-3">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+
+</div>

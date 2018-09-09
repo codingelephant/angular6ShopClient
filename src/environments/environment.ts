@@ -6,6 +6,11 @@ export const environment = {
   production: false
 };
 
+export const API_URL = "http://localhost:3500/api";
+
+export const PUBLIC_URL = "http://localhost:3500/";
+
+
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

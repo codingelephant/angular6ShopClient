@@ -1,0 +1,21 @@
+<div class="auth-area" >
+
+  <form action="" method="POST"   #signinForm="ngForm" (ngSubmit)="onSigninFormSubmit(signinForm)" >
+     
+    <h3>Sign In</h3>
+
+      <div class="form-group">
+          <label>Phone</label>
+          <input type="text" class="form-control" name="phone" [(ngModel)]="user.phone"  placeholder="Enter phone number">
+        </div>
+  
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="user.password"  placeholder="Password">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
