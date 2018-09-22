@@ -1,3 +1,14 @@
 <div class="container">
+  
+  <p class="text-center" *ngIf="loading"><img src="https://loading.io/spinners/pacman/index.eat-bean-pie-loading-gif.svg" alt="Loading..."></p>
+
   <h3>{{ product.title }}</h3>
+  <p>Sell by <a routerLink="/brands/{{product.Brand.id}}">{{ product.Brand.name }}</a></p>
+  <img style="width:400px;" class="card-img-top" src="{{ this.prodSvc.getURL(product.thumbnail) }}" alt="">
+
+  <p>{{ product.description }}</p>
+  <p>$ {{ product.price }} </p>
+
+  <p> <a href="#" class="btn btn-primary">Add to Cart</a></p>
+
 </div>

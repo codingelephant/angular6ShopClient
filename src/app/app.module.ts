@@ -23,18 +23,26 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { BrandComponent } from './pages/brand/brand.component';
+import { AccountMenuComponent } from './components/account-menu/account-menu.component';
+import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
+import { CartComponent } from './pages/cart/cart.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductDetailsComponent},
+  { path: 'brands/:id', component: BrandComponent},
   { path: 'about',  component: AboutComponent },
   { path: 'contact',  component: ContactComponent },
   { path: 'news',  component: NewsComponent },
   { path: 'gallery',  component: GalleryComponent },
   { path: 'signup',  component: SignupComponent },
   { path: 'signin',  component: SigninComponent },
-  { path: 'account',  component: AccountComponent,canActivate:[AuthGuard] },
+  { path: 'account',  component: AccountComponent,canActivate:[AuthGuard] }, 
+  { path: 'account/orders',  component: MyOrdersComponent,canActivate:[AuthGuard] },
+  { path: 'cart',  component: CartComponent },  
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -54,6 +62,10 @@ const appRoutes: Routes = [
     SigninComponent,
     AccountComponent,
     ProductDetailsComponent,
+    BrandComponent,
+    AccountMenuComponent,
+    MyOrdersComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

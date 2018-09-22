@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+declare var require:any;
 var toastr = require('toastr');
 declare var toastr:any;
 @Component({

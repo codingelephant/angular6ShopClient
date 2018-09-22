@@ -9,6 +9,7 @@ declare var window;
 })
 export class ProductDetailsComponent implements OnInit {
   product:any = {};
+  loading:Boolean = true;
   constructor(public prodSvc: ProductsService) {
 
    }
@@ -17,7 +18,8 @@ export class ProductDetailsComponent implements OnInit {
    let url = window.location.href;
    let id = url.split("/").pop();
    this.prodSvc.getOne(id).subscribe((res:any)=>{
-          console.log(res.product);
+          //console.log(res.product);
+          this.loading = false;
           if(res.product){
           this.product = res.product;
           }

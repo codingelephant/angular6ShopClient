@@ -57,6 +57,15 @@ export class ProductsService {
    return PUBLIC_URL+"uploads/products/"+img_name;
    }
 
+   getBrandLogoURL(img_name){
+    return PUBLIC_URL+"uploads/brands/"+img_name;
+    }
+
+   getBrand(id){
+    let url = API_URL+"/products/brands/"+id;
+    return this.http.get(url ,httpOptions);
+   }
+
 
 
 }

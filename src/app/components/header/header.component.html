@@ -23,7 +23,7 @@
       </li>
     </ul>
     
-    <a class="text-light btn btn-outline-primary" routerLink="/cart">Cart <span class="badge badge-light">0</span> </a>
+    <a class="text-light btn btn-outline-primary" routerLink="/cart">Cart <span class="badge badge-light">{{this.cartSvc.getTotalCount()}}</span> </a>
     <a *ngIf="!this.auth.isLoggedIn()" class="text-light btn btn-outline-primary" routerLink="/signup">Register</a>
     <a *ngIf="!this.auth.isLoggedIn()" class="text-light btn btn-outline-primary" routerLink="/signin">Login</a>
     <!-- <a class="text-light" *ngIf="this.auth.isLoggedIn()">Welcome {{ this.auth.user().name }}</a> -->

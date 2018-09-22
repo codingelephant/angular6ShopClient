@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
+
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
@@ -10,6 +12,7 @@ export class HeaderComponent {
   title = 'helloAngular6';
 
   constructor(public auth: AuthService,
+    public cartSvc: CartService,
     public router: Router){
 
   }

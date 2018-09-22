@@ -1,0 +1,70 @@
+<!-- ***** Cart Area Start ***** -->
+<div class="cart_area section_padding_100 clearfix">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="cart-table clearfix">
+
+                  <table class="table table-responsive">
+                      <thead>
+                          <tr>
+                              <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
+                              <th>Image</th>
+                              <th>Product</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              <th>Total</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+
+                          <tr *ngFor="let item of this.cartSvc.getItems()">
+                              <td class="action"><a (click)="removeFromCart(item)"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                              <td class="cart_product_img">
+                                  <a href="#"><img style="width:100px;" src="{{ this.prodSvc.getURL(item.thumbnail) }}" alt="Product"></a>
+                              </td>
+                              <td class="cart_product_desc">
+                                  <h5>{{ item.title }}</h5>
+                              </td>
+                              <td class="price"><span>${{ item.price }}</span></td>
+                              <td class="qty">
+                                  <div class="quantity">
+                                      <span class="qty-minus" (click)="updateFromCart(item, 'm')" ><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                      <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="{{ item.qty }}">
+                                      <span class="qty-plus" (click)="updateFromCart(item, 'p')"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                  </div>
+                              </td>
+                              <td class="total_price"><span>${{ item.qty * item.price }}</span></td>
+                          </tr>       
+
+                      </tbody>
+                      <tfoot>
+                          <tr>
+                              <td>Total (tax incl.)</td>
+                              <td>${{ this.cartSvc.getTotalAmount() }}</td>
+                          </tr>
+                          <tr>
+                              <td><strong>Total</strong></td>
+                              <td><strong>$ {{ this.cartSvc.getTotalAmount() }}</strong></td>
+                          </tr>
+                      </tfoot>
+                  </table>
+
+
+              </div>
+
+              <div class="cart-footer d-flex mt-30">
+                  <div class="back-to-shop w-50">
+                      <a routerLink="/products"  class="btn btn-success bigshop-btn"><i class="fa fa-undo" aria-hidden="true"></i> Back to Shopping</a>
+                  </div>
+                  <div class="update-checkout w-50 text-right">
+                      <!-- <a href="#" class="btn bigshop-btn">Update Cart</a> -->
+                      <a routerLink="/checkout" class="btn btn-primary bigshop-btn">Checkout</a>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+<!-- ***** Cart Area End ***** -->

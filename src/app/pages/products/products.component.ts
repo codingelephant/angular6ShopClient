@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
+import { CartService } from '../../services/cart.service';
+declare var require:any;
+var toastr = require('toastr');
 
 @Component({
   selector: 'app-products',
@@ -17,7 +20,8 @@ export class ProductsComponent implements OnInit {
   };
   p:number  = 1;
   loading:boolean = false;
-  constructor(public productSvc: ProductsService) { 
+  constructor(public productSvc: ProductsService,
+  public cartSvc: CartService) { 
    // this.products = this.productSvc.getAll();
   }
 
@@ -48,7 +52,12 @@ export class ProductsComponent implements OnInit {
 });
   }
 
-
+ addToCart(product){
+  // alert("Added to cart!");
+   console.log(product);
+   this.cartSvc.add(product);
+   toastr.warning('Successfully added to the cart!');
+ }
 
   ngAfterViewInit(){
     
